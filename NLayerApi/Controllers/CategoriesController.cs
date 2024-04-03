@@ -2,12 +2,13 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.Metadata;
 using Microsoft.AspNetCore.Mvc;
+using NLayerAPI.Filters;
 using NLayerCore.Repositories;
 using NLayerCore.Services;
 
 namespace NLayerAPI.Controllers
 {
-  
+    
     public class CategoriesController : CustomBaseController
     {
         private readonly ICategoryService _categoryService;

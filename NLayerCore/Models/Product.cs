@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace NLayerCore.Models
+﻿namespace NLayerCore.Models
 {
-    public class Product :BaseEntity
+    public class Product : BaseEntity
     {
 
         public string Name { get; set; }

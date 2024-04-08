@@ -1,14 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using NLayerCore;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
 using NLayerCore.Models;
 
 namespace NLayerRepository.Seeds
@@ -21,7 +12,7 @@ namespace NLayerRepository.Seeds
             {
                 Id = 1,
                 CategoryId = 1,
-                Name ="Kalem1",
+                Name = "Kalem1",
                 Price = 100,
                 Stock = 20,
                 CreatedDate = DateTime.Now
@@ -38,7 +29,7 @@ namespace NLayerRepository.Seeds
 
             },
               new Product
-            {
+              {
                   Id = 3,
                   CategoryId = 1,
                   Name = "Kalem3",
@@ -46,17 +37,17 @@ namespace NLayerRepository.Seeds
                   Stock = 60,
                   CreatedDate = DateTime.Now
 
-            },
+              },
               new Product
-            {
-                 Id = 4,
-                 CategoryId = 2,
-                 Name = "Kitap1",
-                 Price = 500,
-                 Stock = 50,
-                 CreatedDate = DateTime.Now
+              {
+                  Id = 4,
+                  CategoryId = 2,
+                  Name = "Kitap1",
+                  Price = 500,
+                  Stock = 50,
+                  CreatedDate = DateTime.Now
 
-             },
+              },
                  new Product
                  {
                      Id = 5,

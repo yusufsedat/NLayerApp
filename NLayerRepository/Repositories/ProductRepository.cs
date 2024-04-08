@@ -1,11 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using NLayerCore.Models;
 using NLayerCore.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NLayerRepository.Repositories
 {
@@ -17,7 +12,7 @@ namespace NLayerRepository.Repositories
 
         public async Task<List<Product>> GetProductsWithCategory()
         {
-            return await _context.Products.Include(x=> x.Category).ToListAsync();
+            return await _context.Products.Include(x => x.Category).ToListAsync();
         }
     }
 }

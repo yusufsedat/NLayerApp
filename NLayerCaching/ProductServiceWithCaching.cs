@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Memory;
 using NLayerCore.DTOs;
@@ -8,12 +7,7 @@ using NLayerCore.Repositories;
 using NLayerCore.Services;
 using NLayerCore.UnitOfWorks;
 using NLayerService.Exceptions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NLayerCaching
 {
@@ -33,9 +27,9 @@ namespace NLayerCaching
             _memoryCache = memoryCache;
             _mapper = mapper;
 
-            if(!_memoryCache.TryGetValue(CacheProductKey, out _))
+            if (!_memoryCache.TryGetValue(CacheProductKey, out _))
             {
-                _memoryCache.Set(CacheProductKey, _productRepository.GetProductsWithCategory().Result);   
+                _memoryCache.Set(CacheProductKey, _productRepository.GetProductsWithCategory().Result);
 
             }
         }
@@ -76,14 +70,14 @@ namespace NLayerCaching
             return Task.FromResult(product);
         }
 
-        public async Task<CustomResponseDto<List<ProductWithCategoryDto>>> GetProductsWithCategory()
+        public async Task<List<ProductWithCategoryDto>> GetProductsWithCategory()
         {
             var products = _memoryCache.Get<IEnumerable<Product>>(CacheProductKey);
 
             var productsWithCategoryDto = _mapper.Map<List<ProductWithCategoryDto>>(products);
 
-            return CustomResponseDto<List<ProductWithCategoryDto>>.Success(200,productsWithCategoryDto);
-                
+            return productsWithCategoryDto;
+
         }
 
         public async Task RemoveAsync(Product entity)
@@ -115,7 +109,7 @@ namespace NLayerCaching
         public async Task CacheAllProductsAsync()
         {
 
-            _memoryCache.Set(CacheProductKey , await _productRepository.GetAll().ToListAsync());
+            _memoryCache.Set(CacheProductKey, await _productRepository.GetAll().ToListAsync());
 
         }
     }

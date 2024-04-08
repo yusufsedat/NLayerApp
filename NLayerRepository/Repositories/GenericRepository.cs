@@ -1,11 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using NLayerCore.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NLayerRepository.Repositories
 {
@@ -32,7 +27,7 @@ namespace NLayerRepository.Repositories
 
         public async Task<bool> AnyAsync(Expression<Func<T, bool>> expression)
         {
-           return await _dbSet.AnyAsync(expression);
+            return await _dbSet.AnyAsync(expression);
         }
 
         public IQueryable<T> GetAll()
